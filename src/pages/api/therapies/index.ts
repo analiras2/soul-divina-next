@@ -10,7 +10,7 @@ const Therapies = async (req: NextApiRequest, res: NextApiResponse) => {
   switch (method) {
     case "GET":
       try {
-        const therapies = await Therapy.find({});
+        const therapies = await Therapy.find({}, {title: true, image: true});
 
         res.status(200).json({ success: true, data: therapies });
       } catch (error) {
