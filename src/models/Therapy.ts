@@ -6,13 +6,13 @@ interface Option {
   details: string;
 }
 
-interface Therapy {
+export interface ITherapy {
   title: string;
   image?: string;
   options: Array<Option>;
 }
 
-const TherapySchema = new Schema<Therapy>({
+const TherapySchema = new Schema<ITherapy>({
   title: {
     type: "string",
     required: [true, strings.api.error.title],
@@ -40,4 +40,4 @@ const TherapySchema = new Schema<Therapy>({
   ],
 });
 
-export default models.Therapy || model<Therapy>("Therapy", TherapySchema);
+export default models.Therapy || model<ITherapy>("Therapy", TherapySchema);

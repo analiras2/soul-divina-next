@@ -13,13 +13,18 @@ const OptionsById = async (req: NextApiRequest, res: NextApiResponse) => {
   switch (method) {
     case "GET":
       try {
-        const therapy = await Therapy.findById(id, {options: true});
+        const { options } = await Therapy.findById(id, { "options.title": 1 });
 
-        if (!therapy) {
+        if (!options) {
           return res.status(400).json({ success: false });
         }
 
-        res.status(200).json({ success: true, data: therapy });
+        res
+          .status(200)
+          .json({
+            success: true,
+            data: { items: options, totalItems: options.length },
+          });
       } catch (error) {
         res.status(400).json({ success: false });
       }
