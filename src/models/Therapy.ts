@@ -3,13 +3,13 @@ import strings from "~res/strings";
 
 interface Option {
   title: string;
-  details: string;
+  url: string;
 }
 
 export interface ITherapy {
   title: string;
   image?: string;
-  options: Array<Option>;
+  options:Option[];
 }
 
 const TherapySchema = new Schema<ITherapy>({
@@ -30,7 +30,7 @@ const TherapySchema = new Schema<ITherapy>({
         trim: true,
         maxlength: [40, strings.api.error.titleMaxLength],
       },
-      details: {
+      url: {
         type: "string",
         required: [true, strings.api.error.details],
         unique: true,

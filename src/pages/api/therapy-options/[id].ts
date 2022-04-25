@@ -6,14 +6,14 @@ dbConnect();
 
 const OptionsById = async (req: NextApiRequest, res: NextApiResponse) => {
   const {
-    query: { id },
+    query: { id, isDetails },
     method,
   } = req;
 
   switch (method) {
     case "GET":
       try {
-        const { options } = await Therapy.findById(id, { "options.title": 1 });
+        const { options } = await Therapy.findById(id, { "options.title": 1, "options.url": 1 });
 
         if (!options) {
           return res.status(400).json({ success: false });
@@ -23,7 +23,7 @@ const OptionsById = async (req: NextApiRequest, res: NextApiResponse) => {
           .status(200)
           .json({
             success: true,
-            data: { items: options, totalItems: options.length },
+            data: options
           });
       } catch (error) {
         res.status(400).json({ success: false });

@@ -38,7 +38,7 @@ export const paginationPipeLine = <T extends Record<string, any>>(
             },
           ],
         },
-        page: {
+        pageIndex: {
           $literal: skip / limit + 1,
         },
         hasNextPage: {
