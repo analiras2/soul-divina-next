@@ -1,28 +1,28 @@
-import { createTheme } from "@mui/material/styles";
-import NunitoSans from "./fonts/NunitoSans-Regular.ttf";
-import NunitoSansSemiBold from "./fonts/NunitoSans-SemiBold.ttf";
-import NunitoSansBold from "./fonts/NunitoSans-Bold.ttf";
+import { createTheme } from '@mui/material/styles';
+import NunitoSans from './fonts/NunitoSans-Regular.ttf';
+import NunitoSansSemiBold from './fonts/NunitoSans-SemiBold.ttf';
+import NunitoSansBold from './fonts/NunitoSans-Bold.ttf';
 
 export default createTheme({
   palette: {
     primary: {
-      main: "#873DBA",
+      main: '#873DBA',
     },
     secondary: {
-      main: "#AA3DBA",
+      main: '#AA3DBA',
     },
     inherit: {
-      main: "#fff",
+      main: '#fff',
     },
   },
   typography: {
-    fontFamily: "NunitoSans, Arial",
+    fontFamily: 'NunitoSans, Arial',
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          fontWeight: "bold",
+          fontWeight: 'bold',
         },
       },
     },

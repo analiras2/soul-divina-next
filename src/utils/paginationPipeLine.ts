@@ -1,9 +1,9 @@
-import { FilterQuery } from "mongoose";
+import { FilterQuery } from 'mongoose';
 
 export const paginationPipeLine = <T extends Record<string, any>>(
-  page = "1",
-  size = "10",
-  filter: FilterQuery<T> = {},
+  page = '1',
+  size = '10',
+  filter: FilterQuery<T> = {}
 ) => {
   const limit = Number(size);
   const skip = (Number(page) - 1) * limit;
@@ -18,23 +18,23 @@ export const paginationPipeLine = <T extends Record<string, any>>(
       $facet: {
         total: [
           {
-            $count: "count",
+            $count: 'count',
           },
         ],
         data: [],
       },
     },
     {
-      $unwind: "$total",
+      $unwind: '$total',
     },
     {
       $project: {
         items: {
           $slice: [
-            "$data",
+            '$data',
             skip,
             {
-              $ifNull: [limit, "$total.count"],
+              $ifNull: [limit, '$total.count'],
             },
           ],
         },
@@ -42,14 +42,14 @@ export const paginationPipeLine = <T extends Record<string, any>>(
           $literal: skip / limit + 1,
         },
         hasNextPage: {
-          $lt: [{ $multiply: [limit, Number(page)] }, "$total.count"],
+          $lt: [{ $multiply: [limit, Number(page)] }, '$total.count'],
         },
         totalPages: {
           $ceil: {
-            $divide: ["$total.count", limit],
+            $divide: ['$total.count', limit],
           },
         },
-        totalItems: "$total.count",
+        totalItems: '$total.count',
       },
     },
   ];

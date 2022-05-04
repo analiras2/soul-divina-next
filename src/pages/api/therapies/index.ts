@@ -1,6 +1,6 @@
-import { dbConnect, paginationPipeLine } from "~utils/index";
-import Therapy, { ITherapy } from "~models/Therapy";
-import { NextApiRequest, NextApiResponse } from "next";
+import { dbConnect, paginationPipeLine } from '~utils/index';
+import Therapy, { ITherapy } from '~models/Therapy';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 dbConnect();
 
@@ -11,16 +11,16 @@ const Therapies = async (req: NextApiRequest, res: NextApiResponse) => {
   } = req;
 
   switch (method) {
-    case "GET":
+    case 'GET':
       try {
         const paginationTherapies = await Therapy.aggregate([
           ...paginationPipeLine<ITherapy>(
             pageIndex as string,
             pageSize as string,
-            { title: new RegExp(search as string, "gi") }
+            { title: new RegExp(search as string, 'gi') }
           ),
           {
-            $unset: "items.options",
+            $unset: 'items.options',
           },
         ]);
 
@@ -29,7 +29,7 @@ const Therapies = async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(400).json({ success: false });
       }
       break;
-    case "POST":
+    case 'POST':
       try {
         const therapy = await Therapy.create(req.body);
 

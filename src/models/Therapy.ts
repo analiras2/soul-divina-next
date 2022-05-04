@@ -1,5 +1,5 @@
-import { Schema, model, models } from "mongoose";
-import strings from "~res/strings";
+import { Schema, model, models } from 'mongoose';
+import strings from '~res/strings';
 
 interface Option {
   title: string;
@@ -9,29 +9,29 @@ interface Option {
 export interface ITherapy {
   title: string;
   image?: string;
-  options:Option[];
+  options: Option[];
 }
 
 const TherapySchema = new Schema<ITherapy>({
   title: {
-    type: "string",
+    type: 'string',
     required: [true, strings.api.error.title],
     unique: true,
     trim: true,
     maxlength: [40, strings.api.error.titleMaxLength],
   },
-  image: { type: "string" },
+  image: { type: 'string' },
   options: [
     {
       title: {
-        type: "string",
+        type: 'string',
         required: [true, strings.api.error.title],
         unique: true,
         trim: true,
         maxlength: [40, strings.api.error.titleMaxLength],
       },
       url: {
-        type: "string",
+        type: 'string',
         required: [true, strings.api.error.details],
         unique: true,
         trim: true,
@@ -40,4 +40,4 @@ const TherapySchema = new Schema<ITherapy>({
   ],
 });
 
-export default models.Therapy || model<ITherapy>("Therapy", TherapySchema);
+export default models.Therapy || model<ITherapy>('Therapy', TherapySchema);
