@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { Box, Tab, Tabs, Typography, Grid } from '@mui/material';
+import { Box, Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
 
 interface TabPanelProps {
@@ -37,6 +37,9 @@ const Home: NextPage = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Typography fontWeight="400" fontSize={48} color="primary" align="center">
+        Soul Divina
+      </Typography>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
           value={value}

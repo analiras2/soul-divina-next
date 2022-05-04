@@ -5,14 +5,27 @@ import { red } from '@mui/material/colors';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#873DBA',
     },
     secondary: {
-      main: '#19857b',
+      main: '#AA3DBA',
     },
     error: {
       main: red.A400,
     },
+  },
+  typography: {
+    fontFamily: [
+      'Nunito Sans',
+      'sans-serif',
+      '-apple-system',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
   },
 });
 
