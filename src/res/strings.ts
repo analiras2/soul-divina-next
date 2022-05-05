@@ -7,4 +7,13 @@ export default Object.freeze({
       details: 'Please add a details',
     },
   },
+  about: {
+    title: 'Quem somos',
+  },
+  bath: {
+    title: 'Banhos',
+  },
+  therapy: {
+    title: 'Terapias',
+  },
 });

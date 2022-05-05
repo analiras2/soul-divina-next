@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
-import Logo from '../assets/logo-s.svg';
+import Logo from '~res/assets/logo-s.svg';
+import Strings from '~res/strings';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -44,7 +45,7 @@ const Home: NextPage = () => {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          margin: 2
+          margin: 2,
         }}
       >
         <Logo style={{ height: 80, width: 80, marginRight: 16 }} />
@@ -54,7 +55,7 @@ const Home: NextPage = () => {
           color="primary"
           align="center"
         >
-          Soul Divina
+          {Strings.appName}
         </Typography>
       </Box>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -65,9 +66,9 @@ const Home: NextPage = () => {
           indicatorColor="secondary"
           centered
         >
-          <Tab label="Ervas" />
-          <Tab label="Banhos" />
-          <Tab label="Quem somos" />
+          <Tab label={Strings.therapy.title} />
+          <Tab label={Strings.bath.title} />
+          <Tab label={Strings.about.title} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
