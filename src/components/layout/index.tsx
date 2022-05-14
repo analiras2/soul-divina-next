@@ -1,36 +1,27 @@
-import type { NextPage } from 'next';
-import { Box, Tab, Tabs, Typography } from '@mui/material';
 import React from 'react';
+import { Box, Tab, Tabs, Typography } from '@mui/material';
 import Logo from '~res/assets/logo-s.svg';
 import Strings from '~res/strings';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import Link from 'next/link';
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
+interface Props {
+  children: JSX.Element;
 }
 
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+interface LinkTabProps {
+  label?: string;
+  href: string;
 }
 
-const Home: NextPage = () => {
+const LinkTab = ({ href, ...props }: LinkTabProps) => (
+  <Link href={href}>
+    <Tab component="a" {...props} />
+  </Link>
+);
+
+const Layout = ({ children }: Props) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -66,22 +57,14 @@ const Home: NextPage = () => {
           indicatorColor="secondary"
           centered
         >
-          <Tab label={Strings.therapy.title} />
-          <Tab label={Strings.bath.title} />
-          <Tab label={Strings.about.title} />
+          <LinkTab label={Strings.therapy.title} href="/therapies" />
+          <LinkTab label={Strings.bath.title} href="/baths" />
+          <LinkTab label={Strings.about.title} href="/about" />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        Ervas
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Banhos
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Soul Divina
-      </TabPanel>
+      <Box>{children}</Box>
     </Box>
   );
 };
 
-export default Home;
+export default Layout;
