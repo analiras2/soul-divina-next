@@ -2,8 +2,6 @@ import React from 'react';
 import { Box, Tab, Tabs, Typography } from '@mui/material';
 import Logo from '~res/assets/logo-s.svg';
 import Strings from '~res/strings';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
 import Link from 'next/link';
 
 interface Props {
@@ -62,7 +60,7 @@ const Layout = ({ children }: Props) => {
           <LinkTab label={Strings.about.title} href="/about" />
         </Tabs>
       </Box>
-      <Box>{children}</Box>
+      <Box sx={{ padding: '32px' }}>{children}</Box>
     </Box>
   );
 };
