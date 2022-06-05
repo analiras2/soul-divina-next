@@ -39,7 +39,7 @@ const MOCK = {
 const Options = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <h1>Reike</h1>
+      <h1>Reiki</h1>
       <Grid container spacing={3}>
         {MOCK.data[0].items.map((item) => (
           <Grid item xs={12} sm={4} key={item._id}>

@@ -27,13 +27,13 @@ const Layout = ({ children }: Props) => {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          margin: 2,
+          margin: 1,
         }}
       >
-        <Logo style={{ height: 80, width: 80, marginRight: 16 }} />
+        <Logo style={{ height: '60px', width: '60px', marginRight: 16 }} />
         <Typography
           fontWeight="bold"
-          fontSize={48}
+          fontSize={40}
           color="primary"
           align="center"
         >
@@ -65,7 +65,7 @@ const Layout = ({ children }: Props) => {
           />
         </Tabs>
       </Box>
-      <Box sx={{ padding: '32px' }}>{children}</Box>
+      <Box sx={{ padding: '50px 100px' }}>{children}</Box>
     </Box>
   );
 };

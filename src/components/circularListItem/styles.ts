@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
+import colors from '~res/colors';
 
 export const Container = styled(Box)`
   display: flex;
@@ -17,7 +18,7 @@ export const CircleContainer = styled(Box)`
 
 export const Pressable = styled.div`
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: ${colors.hover};
   }
 `;
 
@@ -29,5 +30,7 @@ export const ImageContainer = styled.div`
   height: 240px;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: ${colors.grey};
+  box-shadow: 1.95px 1.95px 2.6px ${colors.shadow};
+  transition: 0.3s;
 `;

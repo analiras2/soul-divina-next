@@ -48,7 +48,7 @@ const MOCK = {
   ],
 };
 
-const Therapies = (props) => {
+const Therapies = () => {
   const { setCurrentMenu } = useHomeTabMenu();
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Therapies = (props) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         {MOCK.data[0].items.map((item) => (
           <Grid item xs={12} sm={4} key={item._id}>
             <CircularListItem

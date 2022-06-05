@@ -3,6 +3,7 @@ import HideImageIcon from '@mui/icons-material/HideImage';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { Typography } from '@mui/material';
 import {
   CircleContainer,
   Container,
@@ -41,7 +42,7 @@ const CircularListItem: React.FC<Props> = ({
           )}
         </ImageContainer>
       </CircleContainer>
-      {title && <p>{title}</p>}
+      {title && <Typography variant="h6" mt={1}>{title}</Typography>}
     </Container>
   );
 
