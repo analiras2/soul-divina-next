@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import theme from 'src/lib/theme';
 import Layout from '~components/layout';
+import HomeTabMenuProvider from '~context/HomeTabMenu';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,9 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <HomeTabMenuProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </HomeTabMenuProvider>
       </ThemeProvider>
     </>
   );

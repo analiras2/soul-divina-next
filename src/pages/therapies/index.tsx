@@ -1,6 +1,8 @@
 import { Box, Grid } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CircularListItem from '~components/circularListItem';
+import { TabsValue } from '~components/layout/types';
+import { useHomeTabMenu } from '~context/HomeTabMenu';
 
 const MOCK = {
   success: true,
@@ -47,6 +49,12 @@ const MOCK = {
 };
 
 const Therapies = (props) => {
+  const { setCurrentMenu } = useHomeTabMenu();
+
+  useEffect(() => {
+    setCurrentMenu(TabsValue.Therapies);
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>

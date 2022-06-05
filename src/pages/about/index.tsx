@@ -1,7 +1,15 @@
 import { Avatar, Box, Grid, Stack, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { TabsValue } from '~components/layout/types';
+import { useHomeTabMenu } from '~context/HomeTabMenu';
 
 const About = (props) => {
+  const { setCurrentMenu } = useHomeTabMenu();
+
+  useEffect(() => {
+    setCurrentMenu(TabsValue.About);
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={8}>
@@ -33,7 +41,11 @@ const About = (props) => {
         </Grid>
         <Grid item xs={6}>
           <Stack spacing={2} justifyContent="center" alignItems="center">
-            <Avatar alt="Mário Lopes" src="/static/images/avatar/1.jpg" sx={{ width: 180, height: 180 }}/>
+            <Avatar
+              alt="Mário Lopes"
+              src="/static/images/avatar/1.jpg"
+              sx={{ width: 180, height: 180 }}
+            />
             <Typography variant="h4" gutterBottom component="div">
               Mário Lopes
             </Typography>

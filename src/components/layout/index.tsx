@@ -3,15 +3,8 @@ import { Box, Tab, Tabs, Typography } from '@mui/material';
 import Logo from '~res/assets/logo-s.svg';
 import Strings from '~res/strings';
 import Link from 'next/link';
-
-interface Props {
-  children: JSX.Element;
-}
-
-interface LinkTabProps {
-  label?: string;
-  href: string;
-}
+import { LinkTabProps, Props, TabsValue } from './types';
+import { useHomeTabMenu } from '~context/HomeTabMenu';
 
 const LinkTab = ({ href, ...props }: LinkTabProps) => (
   <Link href={href}>
@@ -20,10 +13,10 @@ const LinkTab = ({ href, ...props }: LinkTabProps) => (
 );
 
 const Layout = ({ children }: Props) => {
-  const [value, setValue] = React.useState(0);
+  const { currentMenu, setCurrentMenu } = useHomeTabMenu();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    setCurrentMenu(newValue);
   };
 
   return (
@@ -49,15 +42,27 @@ const Layout = ({ children }: Props) => {
       </Box>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
-          value={value}
+          value={currentMenu}
           onChange={handleChange}
           textColor="secondary"
           indicatorColor="secondary"
           centered
         >
-          <LinkTab label={Strings.therapy.title} href="/therapies" />
-          <LinkTab label={Strings.bath.title} href="/baths" />
-          <LinkTab label={Strings.about.title} href="/about" />
+          <LinkTab
+            label={Strings.therapy.title}
+            href="/therapies"
+            value={TabsValue.Therapies}
+          />
+          <LinkTab
+            label={Strings.bath.title}
+            href="/baths"
+            value={TabsValue.Baths}
+          />
+          <LinkTab
+            label={Strings.about.title}
+            href="/about"
+            value={TabsValue.About}
+          />
         </Tabs>
       </Box>
       <Box sx={{ padding: '32px' }}>{children}</Box>

@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "~components/*": ["src/components/*"],
+      "~context/*": ["src/context/*"],
       "~models/*": ["src/models/*"],
       "~pages/*": ["src/pages/*"],
       "~res/*": ["src/res/*"],
