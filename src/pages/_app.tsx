@@ -5,6 +5,7 @@ import Head from 'next/head';
 import theme from 'src/lib/theme';
 import Layout from '~components/layout';
 import HomeTabMenuProvider from '~context/HomeTabMenu';
+import StoreProvider from '~context/Store';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,9 +16,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <HomeTabMenuProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <StoreProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </StoreProvider>
         </HomeTabMenuProvider>
       </ThemeProvider>
     </>

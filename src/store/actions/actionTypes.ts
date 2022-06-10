@@ -1,0 +1,2 @@
+export const SET_THERAPY = "SET_THERAPY";
+export const SET_THERAPY_OPTIONS = "SET_THERAPY_OPTIONS";

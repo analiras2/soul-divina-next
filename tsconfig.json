@@ -14,13 +14,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "typeRoots": ["src/@types"],
     "baseUrl": ".",
     "paths": {
+      "*": ["src/*"],
       "~components/*": ["src/components/*"],
       "~context/*": ["src/context/*"],
       "~models/*": ["src/models/*"],
       "~pages/*": ["src/pages/*"],
       "~res/*": ["src/res/*"],
+      "~service/*": ["src/service/*"],
+      "~store/*": ["src/store/*"],
       "~api/*": ["src/pages/api/*"],
       "~utils/*": ["src/utils/*"]
     }

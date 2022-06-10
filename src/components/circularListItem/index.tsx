@@ -1,15 +1,9 @@
 /* eslint-disable no-nested-ternary */
 import HideImageIcon from '@mui/icons-material/HideImage';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { Typography } from '@mui/material';
-import {
-  CircleContainer,
-  Container,
-  ImageContainer,
-  Pressable,
-} from './styles';
+import { CircleContainer, Container, ImageContainer } from './styles';
 
 export type Props = {
   id?: string;
@@ -20,14 +14,13 @@ export type Props = {
 };
 
 const CircularListItem: React.FC<Props> = ({
-  id,
   title,
   uri,
   onPress,
   loading,
 }) => {
-  const Component = (
-    <Container>
+  const Component = () => (
+    <Container onClick={onPress}>
       <CircleContainer>
         <ImageContainer>
           {uri ? (
@@ -42,19 +35,15 @@ const CircularListItem: React.FC<Props> = ({
           )}
         </ImageContainer>
       </CircleContainer>
-      {title && <Typography variant="h6" mt={1}>{title}</Typography>}
+      {title && (
+        <Typography variant="h6" mt={1}>
+          {title}
+        </Typography>
+      )}
     </Container>
   );
 
-  return onPress ? (
-    <Pressable>
-      <Link href={`/therapies/options/${id}`}>
-        <a style={{ textDecoration: 'none' }}>{Component}</a>
-      </Link>
-    </Pressable>
-  ) : (
-    Component
-  );
+  return <Component />;
 };
 
 export default CircularListItem;

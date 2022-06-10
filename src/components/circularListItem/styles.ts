@@ -16,12 +16,6 @@ export const CircleContainer = styled(Box)`
   justify-content: center;
 `;
 
-export const Pressable = styled.div`
-  &:hover {
-    background-color: ${colors.hover};
-  }
-`;
-
 export const ImageContainer = styled.div`
   display: flex;
   border-radius: 120px;
