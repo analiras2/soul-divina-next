@@ -1,16 +1,19 @@
 import { Box, Grid } from '@mui/material';
-import React, { useEffect } from 'react';
-import { getTherapies } from '../../service/therapiesService';
-import CircularListItem from '~components/circularListItem';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { CircularListItem, Loading } from '~components/index';
 import { TabsValue } from '~components/layout/types';
 import { useHomeTabMenu } from '~context/HomeTabMenu';
 import { useStore } from '~context/Store';
-import { useRouter } from 'next/router';
+import { getTherapies } from '../../service/therapiesService';
 
 const Therapies = () => {
   const router = useRouter();
   const { setCurrentMenu } = useHomeTabMenu();
   const { therapyState, setTherapies } = useStore();
+
+  const [isLoading, setLoading] = useState(true);
+  const [isOptionsLoading, setOptionsLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -22,18 +25,21 @@ const Therapies = () => {
         // TODO exibir msg
         console.log('Aqui error', error);
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     })();
     setCurrentMenu(TabsValue.Therapies);
   }, []);
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={4}>
         {therapyState.therapies.map((item) => (
           <Grid item xs={12} sm={4} key={item._id}>
             <CircularListItem
+              loading={isOptionsLoading}
               title={item.title}
               uri={item.image}
               onPress={() => {

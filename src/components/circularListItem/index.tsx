@@ -2,8 +2,9 @@
 import HideImageIcon from '@mui/icons-material/HideImage';
 import Image from 'next/image';
 import React from 'react';
-import { Typography } from '@mui/material';
-import { CircleContainer, Container, ImageContainer } from './styles';
+import * as St from './styles';
+import Loading from '~components/loading';
+import * as animationData from '~res/assets/animation/loading.json';
 
 export type Props = {
   id?: string;
@@ -19,10 +20,10 @@ const CircularListItem: React.FC<Props> = ({
   onPress,
   loading,
 }) => {
-  const Component = () => (
-    <Container onClick={onPress}>
-      <CircleContainer>
-        <ImageContainer>
+  return (
+    <St.Container onClick={onPress}>
+      <St.CircleContainer>
+        <St.ImageContainer>
           {uri ? (
             <Image
               alt={`${title} imagem`}
@@ -33,17 +34,16 @@ const CircularListItem: React.FC<Props> = ({
           ) : (
             <HideImageIcon fontSize="large" />
           )}
-        </ImageContainer>
-      </CircleContainer>
+        </St.ImageContainer>
+      </St.CircleContainer>
       {title && (
-        <Typography variant="h6" mt={1}>
+        <St.Title variant="h6" mt={1}>
           {title}
-        </Typography>
+        </St.Title>
       )}
-    </Container>
+      {loading && <Loading isCircular />}
+    </St.Container>
   );
-
-  return <Component />;
 };
 
 export default CircularListItem;
