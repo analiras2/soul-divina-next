@@ -1,18 +1,24 @@
 import * as ACTION_TYPES from './actionTypes';
-import { ITherapy } from '@therapy';
-import { ITherapyAction } from '@therapyAction';
+import { ITherapy, IOption } from '@therapy';
+import { IOptionsState } from '@therapyAction';
 
 export const setTherapies = (data: ITherapy[]) => {
   return {
     type: ACTION_TYPES.SET_THERAPY,
-    therapies: data,
+    payload: data,
   };
 };
 
-export const setTherapiesOptions = (data: ITherapyAction) => {
+export const setTherapiesOptions = (data: IOptionsState) => {
   return {
     type: ACTION_TYPES.SET_THERAPY_OPTIONS,
-    therapyId: data.therapyId,
-    options: data.options,
+    payload: { id: data.id, options: data.options },
+  };
+};
+
+export const setCurrent = (id: string) => {
+  return {
+    type: ACTION_TYPES.SET_CURRENT_THERAPY,
+    payload: id,
   };
 };

@@ -14,6 +14,7 @@ const OptionsById = async (req: NextApiRequest, res: NextApiResponse) => {
     case 'GET':
       try {
         const { options } = await Therapy.findById(id, {
+          'options._id': 1,
           'options.title': 1,
           'options.url': 1,
         });
