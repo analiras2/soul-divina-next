@@ -1,4 +1,4 @@
-import * as ACTION_TYPES from '../actions/actionTypes';
+import { THERAPY_ACTIONS } from '../actions/actionTypes';
 import { ITherapy, ITherapyState, ITherapyAction } from '@therapyAction';
 
 export const initialState = {
@@ -13,11 +13,11 @@ export const TherapyReducer = (
   const { type, payload } = action;
 
   switch (type) {
-    case ACTION_TYPES.SET_THERAPY:
+    case THERAPY_ACTIONS.SET_THERAPIES:
       return {
         therapies: payload,
       };
-    case ACTION_TYPES.SET_THERAPY_OPTIONS: {
+    case THERAPY_ACTIONS.SET_THERAPY_OPTIONS: {
       const oldTherapies = state.therapies;
       const therapies = oldTherapies.map((item: ITherapy) => {
         if (item._id === payload.id) {
@@ -31,7 +31,7 @@ export const TherapyReducer = (
         therapies,
       };
     }
-    case ACTION_TYPES.SET_CURRENT_THERAPY:
+    case THERAPY_ACTIONS.SET_CURRENT_THERAPY:
       return {
         ...state,
         current: state.therapies.find((item: ITherapy) => item._id === payload),

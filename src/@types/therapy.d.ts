@@ -8,6 +8,6 @@ declare module '@therapy' {
     _id: string;
     title: string;
     image?: string;
-    options?: Option[];
+    options: Option[];
   }
 }

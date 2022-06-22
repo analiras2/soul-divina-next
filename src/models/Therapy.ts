@@ -1,16 +1,6 @@
+import { ITherapy } from '@therapy';
 import { Schema, model, models } from 'mongoose';
 import strings from '~res/strings';
-
-interface Option {
-  title: string;
-  url: string;
-}
-
-export interface ITherapy {
-  title: string;
-  image?: string;
-  options: Option[];
-}
 
 const TherapySchema = new Schema<ITherapy>({
   title: {

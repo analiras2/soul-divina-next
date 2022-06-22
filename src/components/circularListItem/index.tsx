@@ -4,7 +4,6 @@ import Image from 'next/image';
 import React from 'react';
 import * as St from './styles';
 import Loading from '~components/loading';
-import * as animationData from '~res/assets/animation/loading.json';
 
 export type Props = {
   id?: string;

@@ -3,17 +3,19 @@ import {
   Button,
   Card,
   CardActions,
-  CardContent, Stack, Typography
+  CardContent,
+  Stack,
+  Typography,
 } from '@mui/material';
 import React from 'react';
-import colors from '~res/colors';
+import { strings, colors } from '~res/index';
 import { Container } from './styles';
 import { Props } from './types';
 
-const BathCard = ({ title, description }: Props): JSX.Element => {
+const BathCard = ({ title, description, howToUse }: Props): JSX.Element => {
   return (
     <Container>
-      <Card variant="outlined" style={{ backgroundColor: colors.white }}>
+      <Card variant="outlined" style={{ backgroundColor: colors.white, height: '380px' }}>
         <CardContent>
           <Stack spacing={2}>
             <Typography variant="h5">{title}</Typography>
@@ -22,14 +24,16 @@ const BathCard = ({ title, description }: Props): JSX.Element => {
             </Typography>
             <Box>
               <Typography variant="body2">Modo de uso:</Typography>
-              <Typography variant="subtitle2" color="text.secondary">
-                HSuahs uiaihsi uahsiuahsiuahsiuah siuhaiushiuh
-              </Typography>
+              <Typography
+                variant="subtitle2"
+                color="text.secondary"
+                dangerouslySetInnerHTML={{ __html: howToUse }}
+              />
             </Box>
           </Stack>
         </CardContent>
         <CardActions>
-          <Button size="small">Saiba mais</Button>
+          <Button size="small">{strings.bath.knowMore}</Button>
         </CardActions>
       </Card>
     </Container>

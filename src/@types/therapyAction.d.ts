@@ -4,7 +4,7 @@ import { IOption } from './therapy';
 declare module '@therapyAction' {
   export interface ITherapyState {
     therapies: ITherapy[];
-    current?: IOption;
+    current?: ITherapy;
   }
 
   export interface IOptionsState {

@@ -1,8 +1,7 @@
 import { Box, Grid } from '@mui/material';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { CircularListItem, Loading } from '~components/index';
-import { TabsValue } from '~components/layout/types';
+import { CircularListItem, Loading, LayoutTypes } from '~components/index';
 import { useHomeTabMenu } from '~context/HomeTabMenu';
 import { useStore } from '~context/Store';
 import { getTherapies, getOptions } from '../../service/therapiesService';
@@ -23,12 +22,12 @@ const Therapies = () => {
         setTherapies(data.data[0].items);
       } catch (error) {
         // TODO exibir msg
-        console.log('Aqui error', error);
+        console.log('Aqui getTherapies error', error);
       } finally {
         setLoading(false);
       }
     })();
-    setCurrentMenu(TabsValue.Therapies);
+    setCurrentMenu(LayoutTypes.TabsValue.Therapies);
   }, []);
 
   const fetchOptions = async (id: string) => {
@@ -41,7 +40,7 @@ const Therapies = () => {
       router.push(`/therapies/options/${id}`);
     } catch (error) {
       // TODO exibir msg
-      console.log('Aqui error', error);
+      console.log('Aqui getOptions error', error);
     } finally {
       setOptionsLoading(false);
     }
