@@ -1,63 +1,30 @@
 import { Box, Grid } from '@mui/material';
+import { ITherapy } from '@therapy';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import { CircularListItem, Loading, LayoutTypes } from '~components/index';
+import { CircularListItem, LayoutTypes, Loading } from '~components/index';
 import { useHomeTabMenu } from '~context/HomeTabMenu';
 import { useStore } from '~context/Store';
-import { getTherapies, getOptions } from '../../service/therapiesService';
+import useFetch, { FetchTypes } from '~hooks/useFetch';
 
 const Therapies = () => {
   const router = useRouter();
   const { setCurrentMenu } = useHomeTabMenu();
-  const { therapyState, setTherapies, setTherapyOptions, setCurrent } = useStore();
+  const { therapyState } = useStore();
+  const [isLoading] = useFetch(FetchTypes.getTherapies);
 
-  const [isLoading, setLoading] = useState(true);
-  const [isOptionsLoading, setOptionsLoading] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await getTherapies();
-
-        setTherapies(data.data[0].items);
-      } catch (error) {
-        // TODO exibir msg
-        console.log('Aqui getTherapies error', error);
-      } finally {
-        setLoading(false);
-      }
-    })();
-    setCurrentMenu(LayoutTypes.TabsValue.Therapies);
-  }, []);
-
-  const fetchOptions = async (id: string) => {
-    setOptionsLoading(true);
-    try {
-      const { data } = await getOptions(id);
-      setTherapyOptions({ id, options: data.data });
-      setCurrent(id);
-
-      router.push(`/therapies/options/${id}`);
-    } catch (error) {
-      // TODO exibir msg
-      console.log('Aqui getOptions error', error);
-    } finally {
-      setOptionsLoading(false);
-    }
-  };
+  setCurrentMenu(LayoutTypes.TabsValue.Therapies);
 
   return isLoading ? (
     <Loading />
   ) : (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={4}>
-        {therapyState.therapies.map((item) => (
+        {therapyState.therapies.map((item: ITherapy) => (
           <Grid item xs={12} sm={4} key={item._id}>
             <CircularListItem
-              loading={isOptionsLoading}
               title={item.title}
               uri={item.image}
-              onPress={() => fetchOptions(item._id)}
+              onPress={() => router.push(`/therapies/options/${item._id}`)}
             />
           </Grid>
         ))}
