@@ -4,7 +4,7 @@ import * as St from './styles';
 import Lottie from 'react-lottie';
 import * as animationData from '~res/assets/animation/loading.json';
 
-export type Props = {
+type Props = {
   isCircular?: boolean;
 };
 

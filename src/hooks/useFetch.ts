@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { getTherapies, getOptions } from '~service/therapiesService';
 import { getBaths } from '~service/bathService';
 import { useStore } from '~context/Store';
+import { AxiosError } from 'axios';
 
 export enum FetchTypes {
   getTherapies,
@@ -9,8 +10,15 @@ export enum FetchTypes {
   getBaths,
 }
 
-const useFetch = (type: FetchTypes, payload?: any): boolean[] => {
+interface Error {
+  error: boolean;
+  code?: string;
+  message?: string;
+}
+
+const useFetch = (type: FetchTypes, payload?: any): [boolean, Error] => {
   const [isLoading, setLoading] = useState(false);
+  const [errorData, setErrorData] = useState<Error>({error: false});
   const {
     therapyState,
     setTherapies,
@@ -25,7 +33,13 @@ const useFetch = (type: FetchTypes, payload?: any): boolean[] => {
 
       setTherapies(data.data[0].items);
     } catch (error) {
-      console.log('Aqui getTherapies error', error);
+      console.log('ERROR - getTherapies');
+      const mError = error as AxiosError;
+      setErrorData({
+        error: true,
+        code: mError.code,
+        message: mError.message,
+      })
     }
   };
 
@@ -40,7 +54,14 @@ const useFetch = (type: FetchTypes, payload?: any): boolean[] => {
       setTherapyOptions({ id, options: data.data });
       setCurrent(id);
     } catch (error) {
-      console.log('Aqui getOptions error', error);
+      console.log('ERROR - getOptions');
+      const mError = error as AxiosError;
+      
+      setErrorData({
+        error: true,
+        code: mError.code,
+        message: mError.message,
+      })
     }
   };
 
@@ -50,7 +71,14 @@ const useFetch = (type: FetchTypes, payload?: any): boolean[] => {
 
       setBaths(data.data[0].items);
     } catch (error) {
-      console.log('Aqui getBaths error', error);
+      console.log('ERROR - getBaths');
+      const mError = error as AxiosError;
+      
+      setErrorData({
+        error: true,
+        code: mError.code,
+        message: mError.message,
+      })
     }
   };
 
@@ -72,7 +100,7 @@ const useFetch = (type: FetchTypes, payload?: any): boolean[] => {
     })();
   }, [type, payload?.id]);
 
-  return [isLoading];
+  return [isLoading, errorData];
 };
 
 export default useFetch;
