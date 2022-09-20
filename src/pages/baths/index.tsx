@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BathCard, Loading, LayoutTypes, Error } from '~components/index';
 import { useHomeTabMenu } from '~context/HomeTabMenu';
 import { Box, Grid } from '@mui/material';
@@ -13,6 +13,10 @@ const Baths = () => {
 
   setCurrentMenu(LayoutTypes.TabsValue.Baths);
 
+  const goToDetails = () => {
+    console.log('goToDetails');
+  };
+
   return isLoading ? (
     <Loading />
   ) : (
@@ -22,11 +26,11 @@ const Baths = () => {
       ) : (
         <Grid container spacing={4}>
           {bathState.baths.map((item: IBath) => (
-            <Grid key={item._id} item xs={12} md={12} lg={6}>
+            <Grid key={item._id} item xs={12} md={6} lg={4}>
               <BathCard
                 title={item.title}
                 description={item.description}
-                howToUse={item.howToUse}
+                onPress={goToDetails}
               />
             </Grid>
           ))}

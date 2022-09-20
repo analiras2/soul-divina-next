@@ -1,5 +1,7 @@
+import { MouseEventHandler } from "react";
+
 export interface Props {
   title: string;
   description: string;
-  howToUse: string;
+  onPress: () => void;
 }

@@ -17,7 +17,7 @@ type Props = {
 
 const Error: React.FC<Props> = ({ message }): JSX.Element => {
   const defaultOptions = {
-    loop: true,
+    loop: false,
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
@@ -27,9 +27,9 @@ const Error: React.FC<Props> = ({ message }): JSX.Element => {
 
   return (
     <Box>
-      <Lottie options={defaultOptions} width="40%" />
+      <Lottie options={defaultOptions} width="40%" speed={0.6} />
       <Typography variant="h5" align="center" marginTop={4}>
-        {message || 'Algo deu errado, tente novamente mais tarde.'}
+        {message || 'Algo deu errado, tente novamente mais tarde...'}
       </Typography>
     </Box>
   );

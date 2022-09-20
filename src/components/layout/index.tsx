@@ -5,6 +5,7 @@ import Strings from '~res/strings';
 import Link from 'next/link';
 import { LinkTabProps, Props, TabsValue } from './types';
 import { useHomeTabMenu } from '~context/HomeTabMenu';
+import useViewport, { Type } from 'hooks/useViewport';
 
 const LinkTab = ({ href, ...props }: LinkTabProps) => (
   <Link href={href}>
@@ -14,8 +15,18 @@ const LinkTab = ({ href, ...props }: LinkTabProps) => (
 
 const Layout = ({ children }: Props) => {
   const { currentMenu, setCurrentMenu } = useHomeTabMenu();
+  const type = useViewport();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const padding =
+    type === Type.DESKTOP
+      ? '50px 100px'
+      : type === Type.TABLET
+      ? '32px 80px'
+      : '20px';
+  console.log('padding', padding);
+  console.log('type', type);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setCurrentMenu(newValue);
   };
 
@@ -65,7 +76,7 @@ const Layout = ({ children }: Props) => {
           />
         </Tabs>
       </Box>
-      <Box sx={{ padding: '50px 100px' }}>{children}</Box>
+      <Box sx={{ padding }}>{children}</Box>
     </Box>
   );
 };
