@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { TabsValue } from '~components/layout/types';
 import { useHomeTabMenu } from '~context/HomeTabMenu';
 
-const About = (props) => {
+const About = () => {
   const { setCurrentMenu } = useHomeTabMenu();
 
   useEffect(() => {

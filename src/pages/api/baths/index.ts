@@ -1,5 +1,6 @@
 import { dbConnect, paginationPipeLine } from '~utils/index';
-import Bath, { IBath } from '~models/Bath';
+import Bath from '~models/Bath';
+import { IBath } from '@bath';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 dbConnect();

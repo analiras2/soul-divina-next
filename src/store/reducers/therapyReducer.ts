@@ -1,5 +1,6 @@
 import { THERAPY_ACTIONS } from '../actions/actionTypes';
-import { ITherapy, ITherapyState, ITherapyAction } from '@therapyAction';
+import { ITherapy } from '@therapy';
+import { ITherapyState, ITherapyAction } from '../../@types/therapyAction';
 
 export const initialState = {
   therapies: [],

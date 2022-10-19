@@ -1,5 +1,6 @@
 import { dbConnect, paginationPipeLine } from '~utils/index';
-import Therapy, { ITherapy } from '~models/Therapy';
+import Therapy from '~models/Therapy';
+import { ITherapy } from '@therapy';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 dbConnect();

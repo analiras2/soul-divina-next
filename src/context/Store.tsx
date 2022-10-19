@@ -4,9 +4,9 @@ import * as BATH_ACTIONS from '~store/actions/bath';
 import * as TherapyReducer from '~store/reducers/therapyReducer';
 import * as BathReducer from '~store/reducers/bathReducer';
 import { ITherapy } from '@therapy';
-import { ITherapyState, IOptionsState } from '@therapyAction';
+import { ITherapyState, IOptionsState } from '../@types/therapyAction';
 import { IBath } from '@bath';
-import { IBathState } from '@bathAction';
+import { IBathState } from '../@types/bathAction';
 
 type StoreProps = {
   therapyState: ITherapyState;

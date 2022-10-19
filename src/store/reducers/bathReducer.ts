@@ -1,5 +1,5 @@
 import { BATH_ACTIONS } from '../actions/actionTypes';
-import { IBathState, IBathAction } from '@bathAction';
+import { IBathState, IBathAction } from '../../@types/bathAction';
 
 export const initialState = {
   baths: [],

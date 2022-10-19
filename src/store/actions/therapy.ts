@@ -1,6 +1,6 @@
 import { THERAPY_ACTIONS } from './actionTypes';
 import { ITherapy } from '@therapy';
-import { IOptionsState } from '@therapyAction';
+import { IOptionsState } from '../../@types/therapyAction';
 
 export const setTherapies = (data: ITherapy[]) => {
   return {

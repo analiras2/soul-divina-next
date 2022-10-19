@@ -23,8 +23,6 @@ const Layout = ({ children }: Props) => {
       : type === Type.TABLET
       ? '32px 80px'
       : '20px';
-  console.log('padding', padding);
-  console.log('type', type);
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setCurrentMenu(newValue);

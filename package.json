@@ -2,11 +2,10 @@
   "name": "soul-divina",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start -p $PORT",
-    "lint": "next lint",
-    "heroku-postbuild": "npm run build"
+    "start": "NODE_ENV=production node server.js",
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/css": "^11.9.0",
