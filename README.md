@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Projeto de Estudo em Next.js - Soul Divina
 
-## Getting Started
+Este é um projeto de estudo em Next.js focado em terapias holísticas, desenvolvido para explorar os benefícios dessas práticas para o bem-estar e equilíbrio pessoal.
 
-First, run the development server:
+### Visite o Site em Desenvolvimento
+Para visualizar o projeto em desenvolvimento, acesse: [Soul Divina Next](https://soul-divina-next.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Funcionalidades do Projeto
+- **API Routes**: Explore os endpoints da API em [http://soul-divina-next.vercel.app/api/](http://soul-divina-next.vercel.app/api/)
+- **Páginas Personalizadas**: Edite e personalize a página principal em `pages/index.tsx`
+- **Atualizações em Tempo Real**: As alterações feitas nos arquivos são refletidas automaticamente no navegador durante o desenvolvimento
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Recursos Adicionais
+- **Documentação do Next.js**: Saiba mais sobre as funcionalidades e API do Next.js na [documentação oficial](https://nextjs.org/docs)
+- **Tutorial Interativo**: Aprenda com o tutorial interativo do Next.js em [Learn Next.js](https://nextjs.org/learn)
+- **Contribuições**: Contribua e forneça feedback no repositório do Next.js no [GitHub](https://github.com/vercel/next.js/)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Implantação na Vercel
+A maneira mais fácil de implantar seu aplicativo Next.js é utilizando a [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme), dos criadores do Next.js. Consulte a [documentação de implantação do Next.js](https://nextjs.org/docs/deployment) para obter mais detalhes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Explore e aproveite o desenvolvimento deste projeto em Next.js dedicado às terapias holísticas! Sinta-se à vontade para contribuir e personalizar conforme necessário.

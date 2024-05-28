@@ -14,11 +14,15 @@ const About = () => {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={8}>
         <Grid item xs={12}>
+          <Typography variant="h4" gutterBottom component="div">
+            Soul Divina
+          </Typography>
           <Typography variant="body1" gutterBottom>
-            body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
-            consectetur, neque doloribus, cupiditate numquam dignissimos laborum
-            fugiat deleniti? Eum quasi quidem quibusdam.
+            É uma aplicação com o projeto de informar e auxiliar pessoas que
+            gostam de Reiki e entendem que somos feitos também de energia.
+            Idealizado pelos reikianos Analira Scalabrini e Mário Henrique.A
+            junção desses dois profissionais é o Soul Divina, onde cada um em
+            sua área de atuação irá contribuir para o desenvolvimento deste APP.
           </Typography>
         </Grid>
         <Grid item xs={6}>
@@ -32,10 +36,7 @@ const About = () => {
               Analira Scalabrini
             </Typography>
             <Typography variant="body1" gutterBottom>
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
-              consectetur, neque doloribus, cupiditate numquam dignissimos
-              laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              Programadora Front End Sênior, Reikiana 
             </Typography>
           </Stack>
         </Grid>
@@ -50,10 +51,7 @@ const About = () => {
               Mário Lopes
             </Typography>
             <Typography variant="body1" gutterBottom>
-              body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore
-              consectetur, neque doloribus, cupiditate numquam dignissimos
-              laborum fugiat deleniti? Eum quasi quidem quibusdam.
+              Professor Mestre em Letras, Reikiano
             </Typography>
           </Stack>
         </Grid>

@@ -19,7 +19,7 @@ const Layout = ({ children }: Props) => {
 
   const padding =
     type === Type.DESKTOP
-      ? '50px 100px'
+      ? '2% 14%'
       : type === Type.TABLET
       ? '32px 80px'
       : '20px';
